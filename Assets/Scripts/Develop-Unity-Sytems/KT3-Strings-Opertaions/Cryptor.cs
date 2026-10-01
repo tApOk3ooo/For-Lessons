@@ -21,7 +21,8 @@ public class Cryptor : MonoBehaviour
     {
         if (textObject != null)
         {
-
+            // переделать под динамическое
+            textObject.text = userText;
         }
     }
     void Update()
