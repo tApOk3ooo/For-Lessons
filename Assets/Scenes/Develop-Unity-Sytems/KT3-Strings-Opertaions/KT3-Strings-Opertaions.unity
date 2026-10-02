@@ -201,7 +201,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 121550591}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1429975628}
+        m_TargetAssemblyTypeName: Cryptor, Assembly-CSharp
+        m_MethodName: Peel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &121550591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -861,7 +873,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 664104892}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1429975628}
+        m_TargetAssemblyTypeName: Cryptor, Assembly-CSharp
+        m_MethodName: RessetText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &664104892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1222,7 +1246,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1137807494}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1429975628}
+        m_TargetAssemblyTypeName: Cryptor, Assembly-CSharp
+        m_MethodName: Decypt
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1137807494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1422,7 +1458,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1196865886}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1429975628}
+        m_TargetAssemblyTypeName: Cryptor, Assembly-CSharp
+        m_MethodName: Correct
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1196865886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1622,7 +1670,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1350590038}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1429975628}
+        m_TargetAssemblyTypeName: Cryptor, Assembly-CSharp
+        m_MethodName: Encrypt
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1350590038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1828,11 +1888,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cryptor
   textObject: {fileID: 1754248770}
-  userText: "Cats are j*st h*ge kittens and n$othing else. These cr$azy animals ar$e
-    preferred by a h*ge part of those who keep animals at home. People alw$ays thin$k
-    that cats are lazy animals that lik$e t$o spend their ent$ire life sitting by
-    the wind$ow, all day long.>We have all heard that ca$ts live an average of 8
-    years, b*t that is no$t the entire tr*th. This n*mber is only ave$rage, cats
+  startUserText: "Cats are j*st h*ge kittens and n$othing else. These cr$azy animals
+    ar$e preferred by a h*ge part of those who keep animals at home. People alw$ays
+    thin$k that cats are lazy animals that lik$e t$o spend their ent$ire life sitting
+    by the wind$ow, all day long.>We have all heard that ca$ts live an average of
+    8 years, b*t that is no$t the entire tr*th. This n*mber is only ave$rage, cats
     live 12 ye$ars and more on a$verage. Cats are s$ocial a$nimals, they live with
     other cats and th$ey als$o$ live with h*mans and other anim$als as well.>Cats
     live *p to 40 ho*rs a week, so they can not even be c$onsidered as lazy. They
@@ -1849,6 +1909,9 @@ MonoBehaviour:
     she has different needs and a different disposition. If yo* choose$ the wrong
     one to k$eep, yo* mig$ht regret it. Cats are an im$portant part of o*r world,
     an$d we have to give them the$ right ed*ca$tion.zzz"
+  decryptSymbol: 117
+  correctString: \n
+  trimSymbol: 122
 --- !u!4 &1429975629
 Transform:
   m_ObjectHideFlags: 0
