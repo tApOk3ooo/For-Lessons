@@ -20,7 +20,7 @@ public class LevelManager : MonoBehaviour
             }
             GameObject levelObject = Instantiate(_levelButtonPrefab, _levelContent);
 
-            // дописать после создания скрипта ui для экземплаяров левелов
+            
         }
     }
 }

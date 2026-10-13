@@ -3,9 +3,15 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "DataLevelSO", menuName = "Data/Level")]
 public class DataLevelSO : ScriptableObject
 {
-    public byte stars;
+    [SerializeField] private byte _stars = 0;
 
-    public bool isLocked = true;
+    [SerializeField] private bool _isLocked = true;
 
-    public int numberLevel;
+    [SerializeField] private int _numberLevel;
+
+    public byte Stars => _stars;
+
+    public bool IsLocked => _isLocked;
+
+    public int NumberLevel => _numberLevel;
 }
