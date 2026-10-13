@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
@@ -9,6 +10,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private GameObject _levelButtonPrefab;
 
     [SerializeField] private Transform _levelContent;
+    [SerializeField] private TextMeshProUGUI _levelAmountText;
 
     private void CreateLevels()
     {

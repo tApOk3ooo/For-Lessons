@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using System;
 using TMPro;
 using UnityEngine;
@@ -7,8 +6,8 @@ using UnityEngine.UI;
 public class LevelCardUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _levelNumberText;
-    [SerializeField] private TextMeshProUGUI _levelAmountText;
     [SerializeField] private GameObject _lockedIcon;
+    [SerializeField] private Button _levelButton;
 
 
     private DataLevelSO _dataLevel;
@@ -17,6 +16,11 @@ public class LevelCardUI : MonoBehaviour
 
     public void Setup(DataLevelSO currentData, LevelManager lm)
     {
+        if (_dataLevel.IsLocked == true)
+        {
+            //_levelButton.;
+        }
+
         _dataLevel = currentData;
 
         _levelManager = lm;
