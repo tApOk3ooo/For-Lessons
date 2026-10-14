@@ -12,6 +12,11 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private Transform _levelContent;
     [SerializeField] private TextMeshProUGUI _levelAmountText;
 
+    private void Start()
+    {
+        CreateLevels();
+    }
+
     private void CreateLevels()
     {
         foreach (DataLevelSO item in allDataLevels)
@@ -22,7 +27,9 @@ public class LevelManager : MonoBehaviour
             }
             GameObject levelObject = Instantiate(_levelButtonPrefab, _levelContent);
 
-            
+            LevelCardUI currentCard = levelObject.GetComponent<LevelCardUI>();
+
+            currentCard.Setup(item, this);
         }
     }
 }

@@ -8,6 +8,12 @@ public class LevelCardUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _levelNumberText;
     [SerializeField] private GameObject _lockedIcon;
     [SerializeField] private Button _levelButton;
+    [SerializeField] private Image _firstStar;
+
+    [SerializeField] private Image _secondStar;
+    [SerializeField] private Image _thirdStar;
+    [SerializeField] private Sprite _starIcon;
+
 
 
     private DataLevelSO _dataLevel;
@@ -16,11 +22,6 @@ public class LevelCardUI : MonoBehaviour
 
     public void Setup(DataLevelSO currentData, LevelManager lm)
     {
-        if (_dataLevel.IsLocked == true)
-        {
-            //_levelButton.;
-        }
-
         _dataLevel = currentData;
 
         _levelManager = lm;
@@ -39,6 +40,30 @@ public class LevelCardUI : MonoBehaviour
         else
         {
             _lockedIcon.SetActive(false);
+        }
+
+        if (_dataLevel.Stars == 0)
+        {
+            return;
+        }
+        else if (_dataLevel.Stars == 1)
+        {
+            _firstStar.sprite = _starIcon;
+        }
+        else if (_dataLevel.Stars == 2)
+        {
+            _firstStar.sprite = _starIcon;
+            _secondStar.sprite = _starIcon;
+        }
+        else if (_dataLevel.Stars == 3)
+        {
+            _firstStar.sprite = _starIcon;
+            _secondStar.sprite = _starIcon;
+            _thirdStar.sprite = _starIcon;
+        }
+        else
+        {
+            Debug.Log("Вероятно на объекте выставлены звёзды за пределами диапозона 0 - 3");
         }
     }
 }

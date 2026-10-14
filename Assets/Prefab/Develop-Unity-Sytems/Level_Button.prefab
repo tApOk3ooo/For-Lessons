@@ -503,6 +503,10 @@ MonoBehaviour:
   _levelNumberText: {fileID: 3938855932125737337}
   _lockedIcon: {fileID: 4617785293368309955}
   _levelButton: {fileID: 8803492240573781959}
+  _firstStar: {fileID: 6235810472084558129}
+  _secondStar: {fileID: 4406937678181372823}
+  _thirdStar: {fileID: 7425304734604483573}
+  _starIcon: {fileID: 21300000, guid: bfbbb31fc82f1064ba4bfffb459aa802, type: 3}
 --- !u!1 &9158379672437806155
 GameObject:
   m_ObjectHideFlags: 0
