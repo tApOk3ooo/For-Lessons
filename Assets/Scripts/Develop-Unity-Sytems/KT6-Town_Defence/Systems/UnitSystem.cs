@@ -1,8 +1,10 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class UnitSystem : MonoBehaviour
 {
-    [SerializeField] private UnitScriptableObjectScript _unitData;
+    [SerializeField] private List<UnitData> _allUnits = new List<UnitData>();
 
 
     private float _currentHealth;

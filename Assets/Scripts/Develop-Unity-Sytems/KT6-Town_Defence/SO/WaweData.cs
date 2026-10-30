@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Wave-Data", menuName = "Tower Defence Data/Wave")]
-public class WaveScriptableObjectScript : ScriptableObject
+public class WaweData : ScriptableObject
 {
     [SerializeField] private int _baseUnitPerWave;
     [SerializeField] private float _unitPerWaveMultiplyer;

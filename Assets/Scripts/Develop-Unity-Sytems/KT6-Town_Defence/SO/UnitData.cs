@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Unit-Data", menuName = "Tower Defence Data/Unit")]
-public class UnitScriptableObjectScript : ScriptableObject
+public class UnitData : ScriptableObject
 {
 
     [Header("Balance")]

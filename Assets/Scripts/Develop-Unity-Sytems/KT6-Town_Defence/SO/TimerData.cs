@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Timer-Data", menuName = "Tower Defence Data/Timer")]
-public class TimerScriptableObjectScript : ScriptableObject
+public class TimerData : ScriptableObject
 {
     [SerializeField] private float _timeForAccrualValute;
     [SerializeField] private float _timeForFeed;
