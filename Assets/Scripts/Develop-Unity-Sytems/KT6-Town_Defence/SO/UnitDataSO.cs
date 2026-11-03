@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Unit-Data", menuName = "Tower Defence Data/Unit")]
-public class UnitData : ScriptableObject
+public class UnitDataSO : ScriptableObject
 {
 
     [Header("Balance")]
@@ -32,4 +32,5 @@ public class UnitData : ScriptableObject
     public float ConsumablePerFeed => _consumablePerTimerTick;
     public UnitType UnitType => _unitType;
     public string UnitName => _unitName;
+    public GameObject UnitPrefab => _unitPrefab;
 }

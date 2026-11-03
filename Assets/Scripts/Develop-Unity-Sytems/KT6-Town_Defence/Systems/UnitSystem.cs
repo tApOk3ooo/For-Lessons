@@ -4,35 +4,38 @@ using UnityEngine;
 
 public class UnitSystem : MonoBehaviour
 {
-    [SerializeField] private List<UnitData> _allUnits = new List<UnitData>();
-
-
+    private UnitDataSO _data;
     private float _currentHealth;
-    private Transform _currentPosition;
-    private bool _isCanAttack = false;
+    private float _attackInterval;
+    private float _attackRange;
+    private float _consumablePerTimerTick;
+    private float _damage;
+    private float _moveSpeed;
+    private GameObject _unitPrefab;
 
 
-    private void Initialize()
+    private void Initialize(UnitDataSO data)
     {
-        if (_unitData == null)
-        {
-            print("Не найден _unitData");
-        }
+        _data = data;
 
-        _currentHealth = _unitData.MaxHealth;
+        _currentHealth = data.MaxHealth;
+
+        _attackInterval = data.AttackInterval;
+
+        _attackRange = data.AttackRange;
+
+        _consumablePerTimerTick = data.ConsumablePerFeed;
+
+        _damage = data.Damage;
+
+        _moveSpeed = data.MoveSpeed;
+
+        _unitPrefab = data.UnitPrefab;
+        
     }
 
     private void Attack()
     {
-        if (_currentPosition.transform.position.magnitude < _unitData.AttackRange)
-        {
-            _isCanAttack = true;
-        }
-
-        if (_isCanAttack == true)
-        {
-            
-        }
     }
 
     private void TakeDamage(float amount)
