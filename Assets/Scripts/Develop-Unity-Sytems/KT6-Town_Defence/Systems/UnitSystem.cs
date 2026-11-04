@@ -1,41 +1,50 @@
-using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class UnitSystem : MonoBehaviour
 {
     private UnitDataSO _data;
+    private Transform _defaultTarget;
+    private Transform _combatTarget;
     private float _currentHealth;
-    private float _attackInterval;
-    private float _attackRange;
-    private float _consumablePerTimerTick;
-    private float _damage;
-    private float _moveSpeed;
-    private GameObject _unitPrefab;
 
+    public Transform CurrentTaget => _combatTarget != null ? _combatTarget.transform : _defaultTarget; // если _combatTarget != null, то узнаём текущее значение _combatTarget и присваиваем _defaultTarget
 
-    private void Initialize(UnitDataSO data)
+    public void Initialize(UnitDataSO data)
     {
         _data = data;
 
-        _currentHealth = data.MaxHealth;
+        _currentHealth = data.MaxHealth;       
+    }
 
-        _attackInterval = data.AttackInterval;
+    public void SetDefaultTarget(Transform target)
+    {
+        _defaultTarget = target;
+    }
 
-        _attackRange = data.AttackRange;
+    private void OnTriggerEnter(Collider other)
+    {
+        if (_combatTarget != null)
+        {
+            return;
+        }
 
-        _consumablePerTimerTick = data.ConsumablePerFeed;
-
-        _damage = data.Damage;
-
-        _moveSpeed = data.MoveSpeed;
-
-        _unitPrefab = data.UnitPrefab;
-        
+        if (other.TryGetComponent(out UnitSystem potentialEnemy))
+        {
+            if (potentialEnemy.IsEnemy != this._isEnemy)
+            {
+                _combatTarget = potentialEnemy;
+            }
+        }
     }
 
     private void Attack()
     {
+        float damage = _data.Damage;
+        float range = _data.AttackRange;
+        float attackInterval = _data.AttackInterval;
+
+
     }
 
     private void TakeDamage(float amount)

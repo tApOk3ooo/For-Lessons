@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[System.Serializable]
 public struct SpawnEntry
 {
     [SerializeField] private UnitDataSO _unitData;

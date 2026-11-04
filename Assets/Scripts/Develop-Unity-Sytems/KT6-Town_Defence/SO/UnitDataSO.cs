@@ -16,6 +16,13 @@ public class UnitDataSO : ScriptableObject
     [SerializeField] private float _attackRange;
 
     [SerializeField] private float _consumablePerTimerTick;
+    //[SerializeField] private bool _isEnemy;
+
+    enum Team
+    {
+        Player,
+        Enemy
+    }
 
 
     [Header("System Info")]
@@ -30,6 +37,7 @@ public class UnitDataSO : ScriptableObject
     public float AttackInterval => _attackInterval;
     public float AttackRange => _attackRange;
     public float ConsumablePerFeed => _consumablePerTimerTick;
+    public bool IsEnemy => _isEnemy;
     public UnitType UnitType => _unitType;
     public string UnitName => _unitName;
     public GameObject UnitPrefab => _unitPrefab;
