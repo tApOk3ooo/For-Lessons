@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +9,10 @@ public class UnitSystem : MonoBehaviour
     private Transform _combatTarget;
     private float _currentHealth;
 
-    public Transform CurrentTaget => _combatTarget != null ? _combatTarget.transform : _defaultTarget; // если _combatTarget != null, то узнаём текущее значение _combatTarget и присваиваем _defaultTarget
+    // если _combatTarget != null, то узнаём текущее значение _combatTarget и присваиваем _defaultTarget
+    public Transform CurrentTaget => _combatTarget != null ? _combatTarget.transform : _defaultTarget; 
+
+    public event Action<UnitSystem> OnDied;
 
     public void Initialize(UnitDataSO data)
     {
@@ -26,15 +30,13 @@ public class UnitSystem : MonoBehaviour
     {
         if (_combatTarget != null)
         {
-            return;
-        }
-
-        if (other.TryGetComponent(out UnitSystem potentialEnemy))
-        {
-            if (potentialEnemy.IsEnemy != this._isEnemy)
+            if (other.TryGetComponent(out UnitDataSO potentialEnemy))
             {
-                _combatTarget = potentialEnemy;
-            }
+                if (potentialEnemy.UnitTeam == potentialEnemy.UnitTeam.Player)
+                {
+                    _combatTarget = potentialEnemy;
+                }
+            }       
         }
     }
 
@@ -59,6 +61,7 @@ public class UnitSystem : MonoBehaviour
 
     private void Die()
     {
+        OnDied?.Invoke(this); // оповещение
         Destroy(gameObject);
     }
 }

@@ -3,6 +3,16 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Unit-Data", menuName = "Tower Defence Data/Unit")]
 public class UnitDataSO : ScriptableObject
 {
+    public enum Team
+    {
+        Player,
+        Enemy
+    }
+    public enum Type
+    {
+        Warrior,
+        Worker
+    }
 
     [Header("Balance")]
     [SerializeField] private float _maxHealth;
@@ -16,18 +26,14 @@ public class UnitDataSO : ScriptableObject
     [SerializeField] private float _attackRange;
 
     [SerializeField] private float _consumablePerTimerTick;
-    //[SerializeField] private bool _isEnemy;
 
-    enum Team
-    {
-        Player,
-        Enemy
-    }
+    [SerializeField] private Team _team;
+    [SerializeField] private Type _type;
+
 
 
     [Header("System Info")]
     [SerializeField] private string _unitName;
-    [SerializeField] private UnitType _unitType;
     [SerializeField] private GameObject _unitPrefab;
 
 
@@ -37,8 +43,8 @@ public class UnitDataSO : ScriptableObject
     public float AttackInterval => _attackInterval;
     public float AttackRange => _attackRange;
     public float ConsumablePerFeed => _consumablePerTimerTick;
-    public bool IsEnemy => _isEnemy;
-    public UnitType UnitType => _unitType;
+    public Team UnitTeam => _team;
+    public Type UnitType => _type;
     public string UnitName => _unitName;
     public GameObject UnitPrefab => _unitPrefab;
 }
