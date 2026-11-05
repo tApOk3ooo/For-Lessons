@@ -6,8 +6,11 @@ public class UnitSystem : MonoBehaviour
 {
     private UnitDataSO _data;
     private Transform _defaultTarget;
-    private Transform _combatTarget;
+    private UnitSystem _combatTarget;
     private float _currentHealth;
+    private float _nextAttackTime;
+    public UnitDataSO.Type UnitType => _data.UnitType;
+    public UnitDataSO.Team UnitTeam => _data.UnitTeam;
 
     // если _combatTarget != null, то узнаём текущее значение _combatTarget и присваиваем _defaultTarget
     public Transform CurrentTaget => _combatTarget != null ? _combatTarget.transform : _defaultTarget; 
@@ -28,25 +31,54 @@ public class UnitSystem : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (_combatTarget != null)
+        if (!other.TryGetComponent(out UnitSystem candidate))
         {
-            if (other.TryGetComponent(out UnitDataSO potentialEnemy))
-            {
-                if (potentialEnemy.UnitTeam == potentialEnemy.UnitTeam.Player)
-                {
-                    _combatTarget = potentialEnemy;
-                }
-            }       
+            return;
+            print("на компоненте нет UnitSystem");
+        }
+
+        if (candidate.UnitTeam == this.UnitTeam)
+        {
+            return;
+        }
+
+        if (_combatTarget == null)
+        {
+            _combatTarget = candidate;
+            return;
+        }
+
+        if (_combatTarget.UnitType == UnitDataSO.Type.Worker && candidate.UnitType == UnitDataSO.Type.Warrior)
+        {
+            _combatTarget = candidate;
         }
     }
 
-    private void Attack()
+    private void AftermathCheckDistance()
     {
-        float damage = _data.Damage;
-        float range = _data.AttackRange;
-        float attackInterval = _data.AttackInterval;
+        float distance = Vector3.Distance(transform.position, CurrentTaget.position);
+
+        if (distance <= _data.AttackRange)
+        {
+            TryAttack();
+        }
+        else
+        {
+
+        }
+    }
+
+    private void TryAttack()
+    {
+        if (Time.time < _nextAttackTime)
+        {
+            return;
+        }
 
 
+        _combatTarget.TakeDamage(_data.Damage);
+
+        _nextAttackTime = Time.time + _data.AttackInterval;
     }
 
     private void TakeDamage(float amount)
