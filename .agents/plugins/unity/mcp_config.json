@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "unity": {
+      "command": "C:/Users/tapok/AppData/Local/Python/pythoncore-3.15-64/Scripts/uvx.exe",
+      "args": [
+        "--python",
+        "3.12",
+        "coplay-mcp-server@latest"
+      ],
+      "env": {
+        "MCP_TOOL_TIMEOUT": "720000"
+      }
+    }
+  }
+}

@@ -1,10 +1,13 @@
 using System;
+using UnityEngine.AI;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(NavMeshAgent))]
 public class UnitSystem : MonoBehaviour
 {
     private UnitDataSO _data;
+    private NavMeshAgent _agent;
     private Transform _defaultTarget;
     private UnitSystem _combatTarget;
     private float _currentHealth;
@@ -17,11 +20,19 @@ public class UnitSystem : MonoBehaviour
 
     public event Action<UnitSystem> OnDied;
 
+    private void Awake()
+    {
+        _agent = GetComponent<NavMeshAgent>();
+    }
+
     public void Initialize(UnitDataSO data)
     {
         _data = data;
 
-        _currentHealth = data.MaxHealth;       
+        _currentHealth = data.MaxHealth;
+
+        _agent.speed = _data.MoveSpeed;
+        _agent.stoppingDistance = _data.AttackRange * 0.9f; // так будет не впритык
     }
 
     public void SetDefaultTarget(Transform target)
@@ -64,17 +75,21 @@ public class UnitSystem : MonoBehaviour
         }
         else
         {
-
+            return;
         }
     }
 
     private void TryAttack()
     {
-        if (Time.time < _nextAttackTime)
+        if (_combatTarget == null)
         {
             return;
         }
 
+        if (Time.time < _nextAttackTime)
+        {
+            return;
+        }
 
         _combatTarget.TakeDamage(_data.Damage);
 
