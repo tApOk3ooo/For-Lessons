@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Unit-Data", menuName = "Tower Defence Data/Unit")]
+[CreateAssetMenu(fileName = "Unit-Data", menuName = "KT6 - Tower Defence Data/Unit")]
 public class UnitDataSO : ScriptableObject
 {
     public enum Team
