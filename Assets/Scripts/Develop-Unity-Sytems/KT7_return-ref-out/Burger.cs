@@ -1,31 +1,84 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Burger
+public class Burger : MonoBehaviour
 {
-    private string _cheese = "сыр";
-    private string _ketchup = "кетчуп";
-    private string _cutlet = "котлета";
-    private string _cucumber = "огурец";
-    private string _salad = "салат";
-    private string _onion = "лук";
-    private string _specialSouce = "специальный соус";
-    private string _sesameBun = "булочка с кунжутом";
-    private string _doubleCutlet = "две котлеты";
+    private const string Cheese = "сыр";
+    private const string Ketchup = "кетчуп";
+    private const string Cutlet = "котлета";
+    private const string Cucumber = "огурец";
+    private const string Salad = "салат";
+    private const string Onion = "лук";
+    private const string SpecialSouce = "специальный соус";
+    private const string SesameBun = "булочка с кунжутом";
+    private const string DoubleCutlet = "две котлеты";
+    private const string CheeseBurger = "чизбургер";
+    private const string BigMac = "биг мак";
+    private const string NotBurger = "не бургер";
 
+    private void Start()
+    {
+        Burger maker = new Burger();
 
-    private string TryGetBurger(string _income1, string _income2, string _income3, string _income4, out string _burgerName)
+        if (TryMakeBurger(Onion, Salad, DoubleCutlet, Cucumber, out string result))
+        {
+            print($"вы успешно собрали этот бурхеер: <color=green>{result}</color>");
+        }
+        //if (TryMakeBurger(SpecialSouce, SesameBun, DoubleCutlet, Cucumber, out string result))
+        //{
+        //    print($"вы успешно собрали этот бурхеер: <color=green>{result}</color>");
+        //}
+        //if (TryMakeBurger(Cheese, Ketchup, Cutlet, Cucumber, out string result))
+        //{
+        //    print($"вы успешно собрали этот бурхеер: <color=green>{result}</color>");
+        //}
+        else
+        {
+            print($"рецепт не подошёл: <color=red>{result}</color>");
+        }  
+    }
+
+    private bool TryMakeBurger(string income1, string income2, string income3, string income4, out string burgerName)
     {
 
-        _burgerName = "безыимянный бургер";
+        burgerName = NotBurger;
 
-        string[] incoming = { _cucumber, _salad, _onion };
+        string[] incoming = { income1, income2, income3, income4 };
 
-        List<string> cheeseBurgerRecipe = new List<string> { "сыр", "кетчуп", "котлета", "огурец" };
-        List<string> bigMac = new List<string> { "огурец", "специальный соус", "булочка с кунжутом", "две котлеты" };
+        string[] cheeseBurgerRecipe = { Cheese, Ketchup, Cutlet, Cucumber };
+        string[] bigMacRecipe = { Cucumber, SpecialSouce, SesameBun, DoubleCutlet };
 
-        List<string> checkList = new List<string>(cheeseBurgerRecipe);
+        if (IsRecipeMatch(incoming, cheeseBurgerRecipe))
+        {
+            burgerName = CheeseBurger;
+            return true;
+        }
+        else if (IsRecipeMatch(incoming, bigMacRecipe))
+        {
+            burgerName = BigMac;
+            return true;
+        }
 
-        return _burgerName;
+        return false;
+    }
+
+    private bool IsRecipeMatch(string[] incoming, string[] recipe)
+    {
+        string[] sortedIncoming = (string[])incoming.Clone();
+        string[] sortedRecipe = (string[])recipe.Clone();
+
+        Array.Sort(sortedIncoming);
+        Array.Sort(sortedRecipe);
+
+        for (int i = 0; i < sortedIncoming.Length; i++)
+        {
+            if (sortedIncoming[i].ToLower() != sortedRecipe[i].ToLower())
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
