@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "DataLevelSO", menuName = "Data/Level")]
+[CreateAssetMenu(fileName = "DataLevelSO", menuName = "KT5 - Level Data/Level")]
 public class DataLevelSO : ScriptableObject
 {
     [SerializeField] private byte _stars = 0;

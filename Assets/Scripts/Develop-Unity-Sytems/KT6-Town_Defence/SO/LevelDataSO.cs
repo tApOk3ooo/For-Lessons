@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Level-Data", menuName = "Tower Defence Data/Level")]
+[CreateAssetMenu(fileName = "Level-Data", menuName = "KT6 - Tower Defence Data/Level")]
 public class LevelDataSO : ScriptableObject
 {
     [SerializeField] private List<SpawnEntry> _spawns;

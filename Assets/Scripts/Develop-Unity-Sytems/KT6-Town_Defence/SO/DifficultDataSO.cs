@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Difficult-Data", menuName = "Tower Defence Data/Dificult")]
+[CreateAssetMenu(fileName = "Difficult-Data", menuName = "KT6 - Tower Defence Data/Dificult")]
 public class DifficultDataSO : ScriptableObject
 {
     [SerializeField] private float _healthMultiplierPerLevel;

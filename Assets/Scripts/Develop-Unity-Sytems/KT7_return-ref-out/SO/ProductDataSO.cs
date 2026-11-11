@@ -1,17 +1,19 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Product-Data", menuName = "KT7 - OnlineShop/Product")]
+[CreateAssetMenu(fileName = "Product-Data", menuName = "KT7 - Online Shop/Product")]
 public class ProductDataSO : ScriptableObject
 {
-    private string _productName;
-    private string _description;
-    private double _price;
-    private int _amount;
-    private bool _isBought = false;
+    [SerializeField] private string _productName;
+    [SerializeField] private string _productDescription;
+    [SerializeField] private Sprite _productSprite;
+    [SerializeField] private double _productPrice;
+    [SerializeField] private int _productAmount;
+    [SerializeField] private bool _isProductBought = false;
 
     public string ProductName => _productName;
-    public string Description => _description;
-    public double Price => _price;
-    public int Amount => _amount;
-    public bool IsBought => _isBought;
+    public string ProductDescription => _productDescription;
+    public Sprite ProductSprite => _productSprite;
+    public double ProductPrice => _productPrice;
+    public int ProductAmount => _productAmount;
+    public bool IsProductBought => _isProductBought;
 }
