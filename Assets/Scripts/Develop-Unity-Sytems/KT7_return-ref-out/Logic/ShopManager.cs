@@ -7,7 +7,7 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private GameObject _productCardPrefab;
     [SerializeField] private Transform _productContentlTransform;
     [SerializeField] private TextMeshProUGUI _sumText;
-    private float _sumValueOfProducts;
+    private decimal _sumValueOfProducts;
 
     private void Start()
     {
