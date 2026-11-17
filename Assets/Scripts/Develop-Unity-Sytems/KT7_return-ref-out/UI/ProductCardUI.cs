@@ -14,6 +14,8 @@ public class ProductCardUI : MonoBehaviour
     private ProductDataSO _productData;
     private ShopManager _shopManager;
     private string _convertedToStringPrice;
+    private const string AmountPostscript = " pcs";
+    private const string ValuteSymbol = " $";
 
     public void Setup(ProductDataSO currentData, ShopManager shopManager)
     {
@@ -33,8 +35,8 @@ public class ProductCardUI : MonoBehaviour
         _icon.sprite = _productData.ProductSprite;
 
         _convertedToStringPrice = Convert.ToString(_productData.ProductPrice);
-        _priceText.SetText(_convertedToStringPrice);
+        _priceText.SetText(_convertedToStringPrice + ValuteSymbol);
 
-        _amountText.SetText(_convertedToStringPrice);
+        _amountText.SetText(_convertedToStringPrice + AmountPostscript);
     }
 }
