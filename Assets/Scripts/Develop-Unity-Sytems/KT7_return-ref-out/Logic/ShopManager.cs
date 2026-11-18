@@ -5,9 +5,9 @@ public class ShopManager : MonoBehaviour
 {
     [SerializeField] private ProductDataSO[] _allProducts;
     [SerializeField] private GameObject _productCardPrefab;
-    [SerializeField] private Transform _productContentlTransform;
-    [SerializeField] private TextMeshProUGUI _sumText;
-    private decimal _sumValueOfProducts;
+    [SerializeField] private Transform _productContentTransform;
+    [SerializeField] private CartManager _cartManager;
+    private float _sumValueOfProducts;
 
     private void Start()
     {
@@ -23,11 +23,11 @@ public class ShopManager : MonoBehaviour
                 print("пропущен data файл в массиве");
             }
 
-            GameObject productCardObject = Instantiate(_productCardPrefab, _productContentlTransform);
+            GameObject productCardObject = Instantiate(_productCardPrefab, _productContentTransform);
 
-            ProductCardUI currentCard = productCardObject.GetComponent<ProductCardUI>();
+            ShopProductCardUI currentCard = productCardObject.GetComponent<ShopProductCardUI>();
 
-            currentCard.Setup(item, this);
+            currentCard.Initialize(item, this, _cartManager);
         }
     }
 }

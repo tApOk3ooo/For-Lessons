@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ProductDataSO
   _productName: test1
   _productDescription: testdesc1
-  _productSprite: {fileID: 21300000, guid: 300f079a9785e1d42898b4c530222e69, type: 3}
+  _productSprite: {fileID: 21300000, guid: e0be7e9df2e52c04a9267937954cd8fd, type: 3}
   _productPrice: 1000
   _productAmount: 100
   _isProductBought: 0
