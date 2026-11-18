@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private float _horizontalInput;
     private Rigidbody2D rb;
     private bool _isGrounded = false;
+    private bool _isFacingRight = true;
 
     private void OnEnable()
     {
@@ -25,6 +26,8 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 moveVector = moveHorizontalAction.ReadValue<Vector2>();
         _horizontalInput = moveVector.x;
+
+        ChekDirection();
 
         Keyboard keyboard = Keyboard.current;
         if (keyboard.spaceKey.wasPressedThisFrame && _isGrounded == true)
@@ -53,6 +56,25 @@ public class PlayerController : MonoBehaviour
         {
             _isGrounded = false;
         }
+    }
+
+    private void ChekDirection()
+    {
+        if (_horizontalInput > 0.01f && !_isFacingRight)
+        {
+            Flip();
+        }
+        else if (_horizontalInput < -0.01f  && _isFacingRight)
+        {
+            Flip();
+        }
+    }
+
+    private void Flip()
+    {
+        _isFacingRight = !_isFacingRight;
+
+        transform.rotation = Quaternion.Euler(0f, _isFacingRight ? 0f : 180f, 0f);
     }
 
     private void OnDisable()
