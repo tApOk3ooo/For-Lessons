@@ -1,6 +1,5 @@
-using UnityEngine;
-using System.Collections;
 using System;
+using UnityEngine;
 
 public class ButtonDmg : MonoBehaviour
 {
@@ -10,6 +9,5 @@ public class ButtonDmg : MonoBehaviour
     public void ClickButton()
     {
         Damaged?.Invoke(_damageAmount);
-        Damaged(_damageAmount);
     }
 }

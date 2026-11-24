@@ -9,6 +9,5 @@ public class ButtonHeal : MonoBehaviour
     public void ClickButton()
     {
         Healed?.Invoke(_healAmount);
-        Healed(_healAmount);
     }
 }

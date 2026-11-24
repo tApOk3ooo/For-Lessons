@@ -1,20 +1,27 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HPBar : MonoBehaviour
 {
+    [SerializeField] private Image _fillImage;
     [SerializeField] private TextMeshProUGUI _healthText;
-    private ButtonHeal buttonHeal;
-    private ButtonDmg buttonDmg;
-
+    [SerializeField] private Player _player;
 
     private void OnEnable()
     {
-        //buttonHeal.Healed += UpdateText;
+        _player.HealthChanged += UpdateBar;
     }
 
-    private void UpdateText(int current, int max)
+    private void OnDisable()
     {
-        _healthText.SetText($"HP: {current} / {max}");
+        _player.HealthChanged -= UpdateBar;
+    }
+
+    private void UpdateBar(int current, int max)
+    {
+        _fillImage.fillAmount = (float)current / max;
+
+        _healthText.text = $"{current}/{max}";
     }
 }
