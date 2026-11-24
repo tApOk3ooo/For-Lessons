@@ -6,7 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Tech-ART/KT-ProBuilder/KT-ProBuilder.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/Develop-Unity-Sytems/KT_Corutines/KT_Corutines_Menu.unity
+    guid: b1ca607fe4f4b5941a4c2c6270981228
+  - enabled: 1
+    path: Assets/Scenes/Develop-Unity-Sytems/KT_Corutines/KT_Corutines_Gameplay.unity
+    guid: 487c6d149c8d13b458917f78e1aebea4
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
