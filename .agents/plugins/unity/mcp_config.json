@@ -1,7 +1,7 @@
 {
   "mcpServers": {
     "unity": {
-      "command": "C:/Users/tapok/AppData/Local/Python/pythoncore-3.15-64/Scripts/uvx.exe",
+      "command": "C:/Users/tapok/.local/bin/uvx.exe",
       "args": [
         "--python",
         "3.12",
