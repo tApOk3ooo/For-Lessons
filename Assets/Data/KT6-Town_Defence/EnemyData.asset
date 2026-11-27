@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5e727284db97154b8b34f85f0263c5d, type: 3}
+  m_Name: EnemyData
+  m_EditorClassIdentifier: Assembly-CSharp::UnitDataSO
+  _maxHealth: 80
+  _damage: 14
+  _moveSpeed: 3.3
+  _attackInterval: 1.2
+  _attackRange: 1.7
+  _consumablePerTimerTick: 0
+  _productionPerTick: 0
+  _hireCost: 0
+  _hireDuration: 0
+  _hireBatchCount: 1
+  _team: 1
+  _type: 0
+  _workerRole: 0
+  _producedResource: 0
+  _unitName: "\u0412\u0440\u0430\u0433"
+  _unitPrefab: {fileID: 7522106503078321292, guid: 4648912b3ddb1984b93529520a40987c, type: 3}

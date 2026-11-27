@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5e727284db97154b8b34f85f0263c5d, type: 3}
+  m_Name: FishermanData
+  m_EditorClassIdentifier: Assembly-CSharp::UnitDataSO
+  _maxHealth: 50
+  _damage: 5
+  _moveSpeed: 3.2
+  _attackInterval: 1.5
+  _attackRange: 1.4
+  _consumablePerTimerTick: 0
+  _productionPerTick: 6
+  _hireCost: 15
+  _hireDuration: 3
+  _hireBatchCount: 1
+  _team: 0
+  _type: 1
+  _workerRole: 2
+  _producedResource: 1
+  _unitName: "\u0420\u044B\u0431\u0430\u043A"
+  _unitPrefab: {fileID: 6395163764070062244, guid: 1c92d03b3e906684e969727dd3134a7d, type: 3}

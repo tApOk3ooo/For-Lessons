@@ -6,10 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Develop-Unity-Sytems/KT_Corutines/KT_Corutines_Menu.unity
-    guid: b1ca607fe4f4b5941a4c2c6270981228
-  - enabled: 1
-    path: Assets/Scenes/Develop-Unity-Sytems/KT_Corutines/KT_Corutines_Gameplay.unity
-    guid: 487c6d149c8d13b458917f78e1aebea4
+    path: Assets/Scenes/Develop-Unity-Sytems/KT6-Town_Defence/TEST.unity
+    guid: 07b096b16d1b9204ebc5f4f99fcda395
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

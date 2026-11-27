@@ -8,34 +8,51 @@ public class UnitDataSO : ScriptableObject
         Player,
         Enemy
     }
+
     public enum Type
     {
         Warrior,
         Worker
     }
 
-    [Header("Balance")]
-    [SerializeField] private float _maxHealth;
+    public enum WorkerRole
+    {
+        None,
+        Plowman,
+        Fisherman,
+        Hunter
+    }
 
-    [SerializeField] private float _damage;
+    public enum ResourceType
+    {
+        Wheat,
+        Fish,
+        Meat
+    }
 
-    [SerializeField] private float _moveSpeed;
+    [Header("Balance - Combat")]
+    [SerializeField] private float _maxHealth = 100f;
+    [SerializeField] private float _damage = 15f;
+    [SerializeField] private float _moveSpeed = 3.5f;
+    [SerializeField] private float _attackInterval = 1.2f;
+    [SerializeField] private float _attackRange = 1.5f;
 
-    [SerializeField] private float _attackInterval;
+    [Header("Balance - Economy & Hiring")]
+    [SerializeField] private float _consumablePerTimerTick = 2f;
+    [SerializeField] private float _productionPerTick = 5f;
+    [SerializeField] private float _hireCost = 10f;
+    [SerializeField] private float _hireDuration = 3f;
+    [SerializeField] private int _hireBatchCount = 1;
 
-    [SerializeField] private float _attackRange;
-
-    [SerializeField] private float _consumablePerTimerTick;
-
+    [Header("Classification")]
     [SerializeField] private Team _team;
     [SerializeField] private Type _type;
-
-
+    [SerializeField] private WorkerRole _workerRole = WorkerRole.Plowman;
+    [SerializeField] private ResourceType _producedResource = ResourceType.Wheat;
 
     [Header("System Info")]
     [SerializeField] private string _unitName;
     [SerializeField] private GameObject _unitPrefab;
-
 
     public float MaxHealth => _maxHealth;
     public float Damage => _damage;
@@ -43,8 +60,14 @@ public class UnitDataSO : ScriptableObject
     public float AttackInterval => _attackInterval;
     public float AttackRange => _attackRange;
     public float ConsumablePerFeed => _consumablePerTimerTick;
+    public float ProductionPerTick => _productionPerTick;
+    public float HireCost => _hireCost;
+    public float HireDuration => _hireDuration;
+    public int HireBatchCount => Mathf.Max(1, _hireBatchCount);
     public Team UnitTeam => _team;
     public Type UnitType => _type;
+    public WorkerRole Role => _workerRole;
+    public ResourceType ProducedResource => _producedResource;
     public string UnitName => _unitName;
     public GameObject UnitPrefab => _unitPrefab;
 }
